@@ -1,40 +1,29 @@
-it ('sum', () => {
-    const total = 1 + 1;
-  
-    expect(total).toBe(2);
-})
-
 // test('it should sum correctly', () => {
 
 //     expect(1+2).toEqual(3)
 // })
-// import {render, screen } from "@testing-library/react"
-// const request = require('supertest');
-// const assert = require('assert');
-// const express = require('express');
-// const app = express();
-// //const server = 'http://localhost:3000';
 
-// const userController = require('./server/controllers/userController');
-// const dbController = require('./server/controllers/dbController');
-// const { hasUncaughtExceptionCaptureCallback } = require('process');
+const request = require('supertest');
+const assert = require('assert');
+const express = require('express');
+const app = express();
+//const server = 'http://localhost:3000';
+
+const userController = require('./server/controllers/userController');
+const dbController = require('./server/controllers/dbController');
+const { hasUncaughtExceptionCaptureCallback } = require('process');
 
 
-// app.post('/login',  userController.checkUser,
-//  (req, res) => {
-//     return res.status(200).json(res.locals.loginUser)
-// })
+app.post('/login',  userController.checkUser,
+ (req, res) => {
+    return res.status(200).json(res.locals.loginUser)
+})
 
-// app.get('/test', (req,res) => {
-//     res.status(200).send();
-// })
-// app.listen(3000, () => console.log(`App listening on port ${3000}`));
+app.get('/test', (req,res) => {
+    res.status(200).send();
+})
+app.listen(3000, () => console.log(`App listening on port ${3000}`));
 // front end test
-
-
-
-
-
 
 // describe('front end test', () => {
 //      first test
@@ -86,24 +75,30 @@ it ('sum', () => {
 
 
 // backend tests
-// describe('Back-end tests',   function(){
-//     it('Should successfully respond to a login attempt from an invalid user ID.', () => {
+describe('Back-end tests',   function(){
+    it('Should increment the status by one when pushing increment button', () => {
+        
+        
+
+    })
+
+    it('Should successfully respond to a login attempt from an invalid user ID.', () => {
 
         // send a post request to login with invalid user data
         // should not invoke the redirect
 
-        // const invalidUser = {
-        //     firstName: '!invalidFirstName',
-        //     lastName:'!invalidLastName',
-        //     username:'!invalidUsername',
-        //     email:'!invalidEmail',
-        //    // password:'!invalidPassword',
-        // }
+        const invalidUser = {
+            firstName: '!invalidFirstName',
+            lastName:'!invalidLastName',
+            username:'!invalidUsername',
+            email:'!invalidEmail',
+           // password:'!invalidPassword',
+        }
 
-        // const validUser = {
-        //     email:'jetyn@gmail.com',
-        //     password:'123',
-        // }
+        const validUser = {
+            email:'jetyn@gmail.com',
+            password:'123',
+        }
 
         // request(app)
         // .post('/login')
@@ -122,13 +117,13 @@ it ('sum', () => {
         // })
 
 
-        // return request(app)
-        // .post('/login')
-        // .send(validUser)
-        // .end((err,res) => {
-        //     if (err) throw err;
-        //     expect(res.status).toBe(200)
-        // })
+        return request(app)
+        .post('/login')
+        .send(validUser)
+        .end((err,res) => {
+            if (err) throw err;
+            expect(res.status).toBe(200)
+        })
 
 
 
@@ -141,6 +136,6 @@ it ('sum', () => {
 
 
 
-//     });    
-// })
+    });    
+})
 

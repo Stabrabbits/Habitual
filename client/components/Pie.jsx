@@ -1,7 +1,39 @@
 import React from 'react';
 import {Pie} from 'react-chartjs-2';
 
-const data = {
+
+// data complete
+  // all active habits goals added together / all active habits status
+
+
+
+
+
+
+function App(props) {
+
+  let complete = 0;
+  let total = 0;
+//console.log('pie data',props.activeHabits)
+for(const habit of props.activeHabits){
+  // each task is weighed the same 10 pts
+    // its completed/total will dictate the points
+    if(habit.type === 'boolean'){
+      if(habit.completed){
+        complete += 10;
+        total += 10;
+      }
+    } else {
+      complete += (habit.status/habit.goal) * 10
+      console.log(habit.status/habit.goal)
+      total += 10
+    }
+
+  
+}
+
+let incomplete = total - complete;
+  const data = {
   // labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   labels: ['Incomplete',  'Complete'],
   // this is where we need to add the habits
@@ -16,12 +48,13 @@ const data = {
       hoverBackgroundColor: '#1c5973',
       hoverBorderColor: '#fafafa',
       // data: [65, 59, 80, 81, 56, 55, 40]
-      data: [30,70]
+      data: [incomplete,complete]
       // this is where we need to add the data for the habits
     }
   ]
 };
-function App() {
+
+
   return (
     <div className='Pie-container'>
         <h2>Habits Chart</h2>

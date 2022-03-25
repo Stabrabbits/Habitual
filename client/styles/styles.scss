@@ -392,13 +392,16 @@ h1 {
     justify-content: space-between;
 }
 
+
+
 .signup-form {
     .wrapper-signup {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         // background-color: yellow;
-        
+      
+       
         .signup-input {
             margin: 10px !important;
             padding: 10px !important;
@@ -413,6 +416,7 @@ h1 {
 
     .signup-name-input {
         display: flex;
+        width: 100%;
     }
 }
 

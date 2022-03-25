@@ -10,7 +10,6 @@ export const getFeedActionCreator = data => ({
   payload: data,
 });
 
-
 export const logoutUserActionCreator = () => ({
   type: types.LOGOUT_USER,
 });
@@ -69,5 +68,10 @@ export const addHabitActionCreate = data => ({
 
 export const editActiveHabitActionCreator = data => ({
   type: types.EDIT_HABIT,
+  payload: data
+})
+
+export const getTodayPercentageActionCreator = data => ({
+  type: types.GET_TODAY_PERCENT,
   payload: data
 })

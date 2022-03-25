@@ -3,12 +3,12 @@ import * as types from '../constants/actionTypes';
 const initialState = {
   userId: null,
   activeHabits: [
-    { habit: 'Drink water',
-      habitId: 1,
-      type: 'number',
-      status: 0,
-      goal: 10,
-      completed: false }
+    // { habit: 'Drink water',
+    //   habitId: 1,
+    //   type: 'number',
+    //   status: 0,
+    //   goal: 10,
+    //   completed: false }
   ],
 
   calendar: [],
@@ -56,7 +56,7 @@ const habitsReducer = (state = initialState, action) => {
     //     goal: 10,
     //     completed: false }
     // ],
-    
+  
     case types.DEACTIVATE_HABIT: {
       console.log('inside deactive habit')
       const newActiveHabits = [];

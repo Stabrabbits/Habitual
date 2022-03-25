@@ -39,7 +39,8 @@ const mapDispatchToProps = (dispatch) => {
         hideModalEdit: (show) => dispatch(actions.hideModalEditActionCreator(show)),
         addHabit: (data) => dispatch(actions.addHabitActionCreate(data)),
         editActiveHabit: (data) => dispatch(actions.editActiveHabitActionCreator(data)),
-        deactivateHabit: (data) => dispatch(actions.deactivateHabitActionCreator(data))
+        deactivateHabit: (data) => dispatch(actions.deactivateHabitActionCreator(data)),
+        getTodayPercentage: (data) => dispatch(actions.getTodayPercentageActionCreator(data))
     }
 };
 
@@ -94,7 +95,7 @@ class FeedContainer extends Component {
                     
                     />
                     {/* pie graph element */}
-                    <Pie/>
+                    <Pie activeHabits={this.props.activeHabits}/>
                  <Completed 
                     showModalEdit={this.props.showModalEdit} 
                     uncompleteBool={this.props.uncompleteBoolHabit} 
